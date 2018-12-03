@@ -1,8 +1,11 @@
 import 'reflect-metadata';
-import {ApiServer} from './server/index';
-import {DatabaseProvider} from './db/index';
+import ApiServer from './server';
+import {DatabaseProvider} from './db';
+const dotenv = require('dotenv');
 
-DatabaseProvider.configure({
+dotenv.config();
+
+DatabaseProvider.configure({ //TODO: needs to come from .env
     type: process.env.DATABASE_TYPE as any || 'postgres',
     database: process.env.DATABASE_NAME || 'weekendpret',
     username: process.env.DATABASE_USERNAME || 'weekendpret',

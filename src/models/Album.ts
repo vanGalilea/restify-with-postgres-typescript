@@ -7,10 +7,10 @@ export default class Album {
     public id: number;
 
     @Column()
-    public firstName: string;
+    public title: string;
 
     @Column()
-    public lastName: string;
+    public year: number;
 
     @OneToMany(type => Song, song => song.album)
     public songs: Song[];
